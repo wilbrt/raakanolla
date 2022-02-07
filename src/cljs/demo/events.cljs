@@ -20,7 +20,7 @@
 (re-frame/reg-event-db
  ::connect-websocket
  (fn [db _]
-   (assoc db :socket (ws/create (str "ws://" (address) "/game")
+   (assoc db :socket (ws/create (str "wss://" (address) "/game")
                                 {:on-message #(re-frame/dispatch [::update-handler %])
                                  :on-open #(re-frame/dispatch [::open-con])}))))
 (re-frame/reg-event-db
