@@ -9,7 +9,8 @@
     [manifold.deferred :as d]
     [manifold.bus :as bus]
     [clojure.java.io :as io]
-    [clojure.core.async :as a]))
+    [clojure.core.async :as a])
+  (:gen-class))
 
 (def non-websocket-request
   {:status 400
