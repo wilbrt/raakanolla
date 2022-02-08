@@ -21,8 +21,7 @@
  ::connect-websocket
  (fn [db _]
    (assoc db :socket (ws/create (str "wss://" (address) "/game")
-                                {:on-message #(re-frame/dispatch [::update-handler %])
-                                 :on-open #(re-frame/dispatch [::open-con])}))))
+                                {:on-message #(re-frame/dispatch [::update-handler %])}))))
 (re-frame/reg-event-db
  ::open-con
  (fn [db _]
@@ -34,11 +33,17 @@
   (let [val (cljs.reader/read-string (.-data msg))]
     (if (:status val)
         (assoc db :gamemarkers val)
-        (-> db
-           (assoc :result (str val " WIN!!!"))
-           (dissoc :socket)
-           (dissoc :gamemarkers)
-           (assoc :in-game false))))))
+        (if (:msg val)
+            (if (= (:msg val) "Let the game begin!")
+                (-> db
+                    (assoc :in-game true)
+                    (dissoc :result))
+                (assoc db :result (:msg val)))
+          (-> db
+            (assoc :result (str val " WIN!!!"))
+            (dissoc :socket)
+            (dissoc :gamemarkers)
+            (assoc :in-game false)))))))
 
 (re-frame/reg-event-db
  ::update-name

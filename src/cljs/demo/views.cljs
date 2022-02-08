@@ -28,6 +28,6 @@
         result (re-frame/subscribe [::subs/result])]
     [:div {:align "center"}
      [:h1 "Raaka Ristinolla"]
-     [:h2 (when-not @game (str @result))]
+     [:h2 (str @result)]
      (if-not @game (do (findmatch)))
      (when @game (doall (map #(row % 20) (range 20))))]))
