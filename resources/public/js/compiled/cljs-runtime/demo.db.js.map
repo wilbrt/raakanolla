@@ -1,1 +1,0 @@
-{"version":3,"sources":["demo/db.cljs"],"mappings":";AAEA,qBAAA,2CAAA,qDAAA,WAAA,4DAAA,5LAAKA","names":["demo.db/default-db"],"sourcesContent":["(ns demo.db)\r\n\r\n(def default-db\r\n  {:name \"re-frame\"\r\n   :in-game false})\r\n"]}
