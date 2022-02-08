@@ -86,4 +86,4 @@
 
 (defn -main
   [& args]
-  (http/start-server handler {:port  8080 #_(Integer/parseInt (System/getenv "PORT"))}))
+  (http/start-server handler {:port  (Integer/parseInt (System/getenv "PORT"))}))

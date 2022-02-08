@@ -1,4 +1,4 @@
-(defproject TicTac "0.1.0-SNAPSHOT"
+(defproject Raakanolla "0.1.0-SNAPSHOT"
   :source-paths ["src" "src/clj"]
   :resource-paths ["resources"]
   :dependencies [[org.clojure/clojure "1.8.0"]
@@ -17,7 +17,7 @@
                  [mount "0.1.16"]
                  [com.taoensso/sente "1.16.2"]]
   :main ^:skip-aot web.core
-  :uberjar-name "TicTac-standalone.jar"
+  :uberjar-name "raakanolla-standalone.jar"
   :min-lein-version "2.0.0"
   :ring {:handler web.core/app}
   :plugins [[lein-ring "0.12.6"]]

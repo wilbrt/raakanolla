@@ -1,1 +1,1 @@
-web: java $JVM_OPTS -jar target/TicTac-standalone.jar
+web: java $JVM_OPTS -jar target/raakanolla-standalone.jar
