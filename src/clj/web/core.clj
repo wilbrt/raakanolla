@@ -47,11 +47,11 @@
 
         (if-not ((keyword room) @gamestate)
           (do (swap! gamestate logic/newroom room)
-              (swap! turnc setstate "X" inc)
+              (swap! turnc logic/setstate "X" inc)
               (s/put! conn (str {:msg "Waiting for opponent..."})))
           (do (swap! gamestate (fn [current]
                              (update-in current [(keyword room) :status] inc)))
-              (swap! turnc setstate "O" dec)
+              (swap! turnc logic/setstate "O" dec)
               (bus/publish! games room (str {:msg "Let the game begin!"}))))
 
       (s/consume
